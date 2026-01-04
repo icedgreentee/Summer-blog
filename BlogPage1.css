@@ -1,0 +1,238 @@
+/* At the very top of your style.css */
+@import url('https://fonts.googleapis.com/css2?family=Spicy+Rice&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Vidaloka&display=swap');
+
+:root {
+  /* 💙 Brand Colours - Blue Focus */
+  --blue-light: #C5E0F5;
+  --blue-medium: #8BC9E8;
+  --blue-teal: #7DB8C9;
+  --cream: #F5EFE7;
+  --charcoal: #3A3A3A;
+
+  /* 🎨 Accent Colours */
+  --accent-peach: #FFB8A3;
+  --accent-sky: #A8D5E8;
+  --accent-brown: #6B4E3D;
+
+  /* 💙 Shadows + Borders */
+  --soft-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --border-blue: 2px solid var(--blue-medium);
+  --border-pixel: 4px solid var(--blue-teal);
+
+  /* ✨ Radii */
+  --radius-soft: 12px;
+  --radius-round: 20px;
+  --radius-pill: 999px;
+
+  /* 🪄 Fonts */
+  --font-title: "Spicy Rice", cursive;
+  --font-body: "Vidaloka", serif;
+  --font-pixel: "Press Start 2P", monospace;
+
+  /* 💫 Spacing */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 40px;
+
+  /* 🌈 Transitions */
+  --transition: all 0.25s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--blue-light);
+  margin-left: 400px;
+  margin-right: 400px;
+  margin-top: 30px;
+}
+.box {
+  padding: 5px 10px;
+  background-color: var(--accent-brown);
+  border-radius: var(--radius-pill);
+}
+
+
+.navbar ul {
+  list-style: none;
+  padding: 10px 20px;
+  background-color: var(--blue-teal);
+  display: flex;
+  align-items: center;
+  border-radius: var(--radius-pill);
+}
+
+/* Nav items */
+.navbar li {
+  color: var(--charcoal);
+  font-family: var(--font-title);
+  padding: 8px 14px;
+  margin-left: 12px;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+}
+
+.navbar .main-wb {
+  font-size: large;
+}
+
+/* Blog name */
+.blog-name {
+  margin-right: auto;
+  color: var(--charcoal);
+  font-family: var(--font-title);
+  font-size: x-large;
+  font-weight: bold;
+}
+
+/* Hover ONLY on Home + Projects */
+.navbar li:not(.blog-name):hover {
+  background-color: var(--accent-sky);
+  color: #333;
+}
+
+.intro-container {
+  display: flex;
+  flex-direction: row !important;  /* Force horizontal layout */
+  padding: 0px 40px;
+  margin-top: 40px;
+  margin-bottom: 30px;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: auto;
+}
+
+/* Text column - MUST stack vertically */
+.text-column {
+  display: flex !important;
+  flex-direction: column !important;  /* Force vertical stacking */
+  gap: 0px;
+  width: auto;
+}
+
+/* Intro box - smaller */
+.intro {
+  height: 150px;
+  width: 650px;
+  border-radius: var(--radius-round);
+  padding: 0px 20px;
+  font-family: var(--font-title);
+  font-size: 40px;
+  color: var(--charcoal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: justify;
+}
+
+/* Introtext box - larger */
+.introtext {
+  height: auto;
+  width: 650px;
+  border-radius: var(--radius-round);
+  padding: 0px 20px;
+  font-family: var(--font-body);
+  font-size: 20px;
+  color: var(--accent-brown);
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  text-align: justify;
+}
+
+/* Photo */
+.me {
+  width: 350px;
+  height: auto;
+  border-radius: var(--radius-round);
+  object-fit: cover;
+  flex-shrink: 0;  /* Prevent photo from shrinking */
+}
+
+/* ------------------ CHECKLIST ------------------ */
+.checklist {
+  list-style: none;
+  padding-top: 10px;
+  padding-left: 30px;
+}
+
+/* Hide default checkbox */
+.checklist input[type="checkbox"] {
+  display: none;
+}
+
+/* Label layout */
+.checklist label {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 5px;
+  font-size: 18px;
+  color: #6B4E3DBF;
+}
+
+/* Pixel checkbox */
+.checklist label::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  background-color: #fff;
+  border: 3px solid var(--blue-teal);
+  box-shadow:
+    2px 0 0 var(--blue-teal),
+    0 2px 0 var(--blue-teal),
+    2px 2px 0 var(--blue-teal);
+}
+
+/* Text wrapper */
+.checklist span {
+  position: relative;
+}
+
+/* Checked state */
+.checklist input[type="checkbox"]:checked + span {
+  color: #999;
+  text-decoration: line-through;
+  opacity: 0.7;
+}
+
+/* Pixel tick */
+.checklist input[type="checkbox"]:checked + span::before {
+  content: "✔";
+  position: absolute;
+  left: -32px;
+  top: 0;
+  font-family: var(--font-pixel);
+  font-size: 14px;
+}
+
+/* Hover glow */
+.checklist label:hover::before {
+  background-color: var(--accent-sky);
+}
+
+.projects {
+  display: flex;
+  flex-direction: row !important;  /* Force horizontal layout */
+  padding: 0px 40px;
+  margin-top: 40px;
+  margin-bottom: 30px;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: auto;
+}
+
+h2 {
+  padding: 0px 20px;
+  font-family: var(--font-title);
+  font-size: 40px;
+  color: var(--charcoal);
+}
